@@ -10,7 +10,7 @@ const { meta } = Astro.props;
 <div class="bg-background-alt/50 flex h-full w-full flex-col items-center justify-center">
     <div class="bg-background-alt flex h-6 w-full items-center justify-between">
         <div></div>
-        <a href={meta.url} class="underline">
+        <a href={meta.url} class="hover:underline">
             {new URL(meta.url).hostname} @ {Astro.site?.hostname ?? "localhost"}
         </a>
         <div class="hover:bg-foreground/10 flex w-6 items-center justify-center">
@@ -30,8 +30,8 @@ const { meta } = Astro.props;
             awesome stuffs and things.
             <br />
             <br />
-            It's rather barebones as of right now, but I am planning on redoing it in the nearish future.
-            WIth that said, you might be able to find some secrets if you go look around for a bit.
+            It's rather bare-bones as of right now, but I am planning on redoing it in the nearish future.
+            With that said, you might be able to find some secrets if you go look around for a bit.
         </p>
     </div>
 </div>
