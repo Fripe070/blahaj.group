@@ -6,7 +6,8 @@ The site is built using [Astro](https://astro.build/) and aimed at providing cus
 
 ### Getting Started
 
-Clone the repository and run the following commands
+Clone the repository and run the following commands.
+If you intend to contribute, you probably want to fork the repository and clone your fork instead.
 
 ```sh
 bun install
