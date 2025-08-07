@@ -1,0 +1,24 @@
+---
+const title = "The Blåhaj Group";
+const description = "A web-based shader editor and viewer.";
+const url: URL = Astro.url ?? new URL("https://blahaj.group/");
+
+const preview: string = new URL(url.pathname.replace(/\/?$/, "/preview.webp"), url).href;
+const favicon: string = new URL(url.pathname.replace(/\/?$/, "/favicon.svg"), url).href;
+---
+
+<link rel="icon" type="image/svg+xml" href={favicon} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url.href} />
+<meta name="generator" content={Astro.generator} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url.href} />
+<meta property="og:image" content={preview} />
+<meta property="og:image:type" content="image/webp" />
+<!-- <meta property="og:image:alt" content={imageAlt} /> -->
+<meta name="twitter:card" content="summary" />

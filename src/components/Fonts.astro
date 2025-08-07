@@ -1,0 +1,14 @@
+---
+import { Font } from "astro:assets";
+---
+
+<Font cssVariable="--font-roboto" preload />
+<Font cssVariable="--font-jetbrains-mono" preload />
+
+<style>
+    @import "tailwindcss";
+    @theme inline {
+        --font-sans: var(--font-roboto), sans-serif;
+        --font-mono: var(--font-jetbrains-mono), ui-monospace;
+    }
+</style>
