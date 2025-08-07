@@ -7,8 +7,31 @@ interface Props {
 const { meta } = Astro.props;
 ---
 
-<div class="bg-background-alt flex h-full w-full items-center justify-center">
-    <a href={meta.url} class="text-blue-500 hover:underline">
-        {meta.url}
-    </a>
+<div class="bg-background-alt/50 flex h-full w-full flex-col items-center justify-center">
+    <div class="bg-background-alt flex h-6 w-full items-center justify-between">
+        <div></div>
+        <a href={meta.url} class="underline">
+            {new URL(meta.url).hostname} @ {Astro.site?.hostname ?? "localhost"}
+        </a>
+        <div class="hover:bg-foreground/10 flex w-6 items-center justify-center">
+            <span>&times;</span>
+        </div>
+    </div>
+    <div class="w-full grow overflow-y-auto">
+        <p
+            contenteditable="true"
+            class:list={[
+                "text-foreground h-full w-full p-1",
+                "[&[contenteditable]]:focus:border-none [&[contenteditable]]:focus:outline-none",
+                "[&[contenteditable]]:active:border-none [&[contenteditable]]:active:outline-none",
+            ]}
+        >
+            Come over to my very epic and cool and awesome website where I have lots of epic and
+            awesome stuffs and things.
+            <br />
+            <br />
+            It's rather barebones as of right now, but I am planning on redoing it in the nearish future.
+            WIth that said, you might be able to find some secrets if you go look around for a bit.
+        </p>
+    </div>
 </div>
