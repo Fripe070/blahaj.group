@@ -1,24 +1,24 @@
----
 import type { AstroInstance } from "astro";
 import { getCollection } from "astro:content";
-
-interface MemberCard {
-    meta: (typeof members)[number];
-    component: AstroInstance["default"];
-}
 
 const members = await getCollection("members");
 const cardComponents: Record<string, AstroInstance> = import.meta.glob("/src/cards/*/card.astro", {
     eager: true,
 });
 
-const cards: MemberCard[] = Object.entries(cardComponents)
+export type CardMeta = (typeof members)[number]["data"];
+export interface MemberCard {
+    meta: CardMeta;
+    component: AstroInstance["default"];
+}
+
+export const cards: MemberCard[] = Object.entries(cardComponents)
     .map(([path, component]) => {
         const id = path.split("/").slice(-2, -1)[0]!;
         const member = members.find((m) => m.id === id);
         if (!member) throw new Error(`Member with ID ${id} not found`);
         return {
-            meta: member,
+            meta: member.data,
             component: component.default,
         };
     })
@@ -27,14 +27,3 @@ const cards: MemberCard[] = Object.entries(cardComponents)
         const bIndex = members.findIndex((m) => m.id === b.meta.id);
         return aIndex - bIndex;
     });
----
-
-<div class="flex flex-row flex-wrap justify-center gap-5 p-5">
-    {
-        cards.map((card) => (
-            <div class="relative h-80 w-180 overflow-visible">
-                <card.component {...card.meta} />
-            </div>
-        ))
-    }
-</div>

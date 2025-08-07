@@ -4,9 +4,9 @@ import "@/styles/global.css";
 import { Image } from "astro:assets";
 
 import BlahajImage from "@/assets/blahaj.webp";
-import CardList from "@/components/CardList.astro";
 import Fonts from "@/components/Fonts.astro";
 import MetaTags from "@/components/MetaTags.astro";
+import { cards } from "@/scripts/cards";
 ---
 
 <html lang="en">
@@ -17,7 +17,7 @@ import MetaTags from "@/components/MetaTags.astro";
         <Fonts />
     </head>
     <body class="bg-background text-foreground min-h-screen">
-        <div class="bg-background-alt flex w-full flex-col sm:flex-row items-center justify-center">
+        <div class="bg-background-alt flex w-full flex-col items-center justify-center sm:flex-row">
             <section
                 class="flex flex-col-reverse items-center justify-center gap-4 p-4 not-sm:pb-0 sm:flex-row"
             >
@@ -42,6 +42,14 @@ import MetaTags from "@/components/MetaTags.astro";
             </nav>
         </div>
 
-        <CardList />
+        <div class="flex flex-row flex-wrap justify-center gap-5 p-5">
+            {
+                cards.map((card) => (
+                    <div class="relative h-80 w-180 overflow-visible">
+                        <card.component meta={card.meta} />
+                    </div>
+                ))
+            }
+        </div>
     </body>
 </html>

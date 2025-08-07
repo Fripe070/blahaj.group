@@ -1,0 +1,39 @@
+---
+import "@/styles/global.css";
+
+import Fonts from "@/components/Fonts.astro";
+import MetaTags from "@/components/MetaTags.astro";
+import { cards } from "@/scripts/cards";
+
+export function getStaticPaths() {
+    return cards.map((card) => ({
+        params: { card_id: card.meta.id },
+    }));
+}
+
+const { card_id } = Astro.params;
+
+const card = cards.find((c) => c.meta.id === card_id)!;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <MetaTags />
+        <Fonts />
+    </head>
+    <body class="bg-background text-foreground flex min-h-screen items-center justify-center">
+        <div
+            class:list={[
+                "h-[calc(100svh-2*var(--spacing))]",
+                "w-[calc(100svw-2*var(--spacing))]",
+                "sm:h-[calc(100svh-8*var(--spacing))]",
+                "sm:w-[calc(100svw-8*var(--spacing))]",
+                "relative overflow-visible",
+            ]}
+        >
+            <card.component meta={card.meta} />
+        </div>
+    </body>
+</html>

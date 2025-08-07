@@ -1,1 +1,14 @@
-<div class="bg-background-alt flex h-full w-full items-center justify-center">Kind :3</div>
+---
+import type { CardMeta } from "@/scripts/cards";
+
+interface Props {
+    meta: CardMeta;
+}
+const { meta } = Astro.props;
+---
+
+<div class="bg-background-alt flex h-full w-full items-center justify-center">
+    <a href={meta.url} class="text-blue-500 hover:underline">
+        {meta.url}
+    </a>
+</div>
