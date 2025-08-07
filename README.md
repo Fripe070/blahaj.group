@@ -22,6 +22,7 @@ npm run dev
 ```
 
 </details>
+It is recommended that you use VS Code with the configured extensions for the best development experience.
 
 ### Joining the ring
 

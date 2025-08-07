@@ -7,6 +7,10 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
+    output: "static",
+    build: {
+        assets: "assets",
+    },
     experimental: {
         fonts: [
             {
@@ -24,9 +28,5 @@ export default defineConfig({
                 styles: ["normal", "italic"],
             },
         ],
-    },
-    output: "static",
-    build: {
-        assets: "assets",
     },
 });

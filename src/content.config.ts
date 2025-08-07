@@ -6,7 +6,7 @@ const members = defineCollection({
     schema: z.object({
         id: z.string(),
         owner: z.string().default("Anonymous"),
-        url: z.string(),
+        url: z.string().url(),
     }),
 });
 
