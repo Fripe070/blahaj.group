@@ -1,4 +1,5 @@
 // @ts-check
+import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import eslintPluginAstro from "eslint-plugin-astro";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -7,6 +8,8 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
     { ignores: ["dist/", ".astro/", "bun.lockb"] },
+    js.configs.recommended,
+    tseslint.configs.recommended,
     tseslint.configs.stylistic,
     eslintConfigPrettier,
     eslintPluginAstro.configs.recommended,

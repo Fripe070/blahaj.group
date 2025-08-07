@@ -7,7 +7,7 @@
         "build": "astro build",
         "test": "vitest run",
         "fix": "eslint --fix . && prettier --write .",
-        "lint": "eslint --fix .",
+        "lint": "eslint .",
         "format": "prettier --write ."
     },
     "dependencies": {
