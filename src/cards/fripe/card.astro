@@ -7,15 +7,11 @@ interface Props {
 const { meta } = Astro.props;
 ---
 
-<div class="bg-background-alt/50 flex h-full w-full flex-col items-center justify-center">
-    <div class="bg-background-alt flex h-6 w-full items-center justify-between">
-        <div></div>
+<div class="flex h-full w-full flex-col items-center justify-center bg-[#95bbde] dark:bg-[#181b20]">
+    <div class="flex h-6 w-full items-center justify-center bg-[#cde0fa] px-4 dark:bg-[#21252b]">
         <a href={meta.url} class="hover:underline">
             {new URL(meta.url).hostname} @ {Astro.site?.hostname ?? "localhost"}
         </a>
-        <div class="hover:bg-foreground/10 flex w-6 items-center justify-center">
-            <span>&times;</span>
-        </div>
     </div>
     <div class="w-full grow overflow-y-auto">
         <p
