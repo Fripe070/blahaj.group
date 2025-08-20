@@ -19,6 +19,7 @@ export default defineConfig({
                 cssVariable: "--font-roboto",
                 subsets: ["latin"],
                 styles: ["normal"],
+                weights: ["400", "700"],
             },
             {
                 provider: fontProviders.google(),
@@ -26,6 +27,7 @@ export default defineConfig({
                 cssVariable: "--font-jetbrains-mono",
                 subsets: ["latin"],
                 styles: ["normal", "italic"],
+                weights: ["400", "700"],
             },
         ],
     },
