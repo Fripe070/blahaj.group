@@ -2,24 +2,24 @@
 import "@/styles/global.css";
 
 import Fonts from "@/components/Fonts.astro";
-import { cards } from "@/scripts/cards";
+import { memberSites } from "@/scripts/sites";
 
 export function getStaticPaths() {
-    return cards.map((card) => ({
-        params: { card_id: card.meta.id },
+    return memberSites.map((site) => ({
+        params: { card_id: site.meta.id },
     }));
 }
 
 const { card_id } = Astro.params;
 
-const card = cards.find((c) => c.meta.id === card_id)!;
+const site = memberSites.find((site) => site.meta.id === card_id)!;
 ---
 
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Viewing Card: {card.meta.id}</title>
+        <title>Card: {site.meta.id}</title>
         <Fonts />
     </head>
     <body class="bg-background text-foreground flex min-h-screen items-center justify-center">
@@ -32,7 +32,7 @@ const card = cards.find((c) => c.meta.id === card_id)!;
                 "relative overflow-visible",
             ]}
         >
-            <card.component meta={card.meta} />
+            <site.card meta={site.meta} />
         </div>
     </body>
 </html>

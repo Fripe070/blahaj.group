@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 import BlahajImage from "@/assets/blahaj.webp";
 import Fonts from "@/components/Fonts.astro";
 import MetaTags from "@/components/MetaTags.astro";
-import { cards } from "@/scripts/cards";
+import { memberSites } from "@/scripts/sites";
 ---
 
 <html lang="en">
@@ -27,7 +27,7 @@ import { cards } from "@/scripts/cards";
                     <nav class="mt-2 flex flex-row items-stretch justify-center gap-4">
                         <a
                             class="rounded bg-blue-400 px-4 py-2 text-center text-black select-none hover:bg-blue-500"
-                            href="/nav/random"
+                            href="/random"
                         >
                             Random Site
                         </a>
@@ -39,9 +39,9 @@ import { cards } from "@/scripts/cards";
 
         <div class="flex flex-row flex-wrap justify-center gap-5 p-5">
             {
-                cards.map((card) => (
+                memberSites.map((site) => (
                     <div class="relative h-80 w-180 overflow-visible">
-                        <card.component meta={card.meta} />
+                        <site.card meta={site.meta} />
                     </div>
                 ))
             }

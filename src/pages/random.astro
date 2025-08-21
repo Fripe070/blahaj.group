@@ -1,0 +1,41 @@
+---
+import "@/styles/global.css";
+
+import Fonts from "@/components/Fonts.astro";
+import { memberSites } from "@/scripts/sites";
+
+const candidateLinks = memberSites.map((site) => site.meta.url);
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>A random site in the ring</title>
+        <Fonts />
+    </head>
+    <body
+        class="bg-background text-foreground flex min-h-screen flex-col items-center justify-center"
+        data-site-ids={candidateLinks.join(",")}
+        id="redirect-page"
+    >
+        <h1>Redirecting to a random page in the ring</h1>
+        <p>
+            If you are not redirected,
+            <a id="redirect-link" class="text-blue-500">click here</a>.
+        </p>
+    </body>
+</html>
+
+<script>
+    const dataHolder = document.getElementById("redirect-page") as HTMLDivElement;
+    const siteUrls = dataHolder.dataset.siteIds!.split(",");
+
+    const randomIndex = Math.floor(Math.random() * siteUrls.length);
+    const siteMeta = siteUrls[randomIndex]!;
+    console.log("Redirecting to:", siteMeta);
+
+    const linkElement = document.getElementById("redirect-link") as HTMLAnchorElement;
+    linkElement.href = siteMeta;
+    window.location.replace(siteMeta);
+</script>

@@ -1,0 +1,17 @@
+---
+import RedirectPage from "@/components/RedirectPage.astro";
+import { getRingOffset } from "@/scripts/navigation";
+import { memberSites } from "@/scripts/sites";
+
+export function getStaticPaths() {
+    return memberSites.map((site) => ({
+        params: { site_id: site.meta.id },
+    }));
+}
+
+const { site_id } = Astro.params;
+
+const siteMeta = getRingOffset(site_id, +1);
+---
+
+<RedirectPage url={siteMeta.meta.url} />

@@ -27,6 +27,15 @@ It is recommended that you use VS Code with the configured extensions for the be
 
 ### Joining the ring
 
+> [!WARNING]
+> The ring is currently under active development and the below information might not be up-to-date.
+> If trouble arises adding yourself to the ring, please open an issue.
+
+<!-- MAINTAINER TODO LIST:
+- Explain requirements for the site to be accepted into the ring.
+- Document new card naming rules (alphanumerical with underscores)
+ -->
+
 1. **Add yourself to [`members.json`](src/members.json)**
 
     ```json
