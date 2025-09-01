@@ -2,8 +2,10 @@
 import "@/styles/global.css";
 
 import { Image } from "astro:assets";
+import { REPO_URL } from "astro:env/server";
 
 import BlahajImage from "@/assets/blahaj.webp";
+import GitHubIcon from "@/assets/github.svg";
 import Fonts from "@/components/Fonts.astro";
 import MetaTags from "@/components/MetaTags.astro";
 import { memberSites } from "@/scripts/sites";
@@ -23,14 +25,29 @@ import { memberSites } from "@/scripts/sites";
             >
                 <div class="flex w-full flex-col items-center sm:items-start">
                     <h1 class="text-4xl">BLÅHAJ.GROUP</h1>
-                    <p>A silly webring for a group of developer friends.</p>
-                    <nav class="mt-2 flex flex-row items-stretch justify-center gap-4">
-                        <a
-                            class="rounded bg-blue-400 px-4 py-2 text-center text-black select-none hover:bg-blue-500"
-                            href="/random"
-                        >
-                            Random Site
-                        </a>
+                    <p class="text-center">A silly webring for a group of friends.</p>
+                    <nav class="mt-2">
+                        <ul class="flex flex-row flex-wrap items-stretch justify-center gap-2">
+                            <li>
+                                <a
+                                    class="flex h-10 items-center justify-center rounded bg-blue-400 px-4 text-black select-none hover:bg-blue-500"
+                                    href="/random"
+                                >
+                                    Random Site
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="text- flex h-10 items-center justify-center gap-2 rounded bg-white px-2.5 select-none hover:bg-gray-200 dark:bg-[#010409] dark:text-white dark:hover:bg-[#161B22]"
+                                    href={REPO_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <GitHubIcon class="h-6 w-6" />
+                                    Get involved
+                                </a>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
                 <Image src={BlahajImage} alt="Blåhaj" class="h-48 w-48" />

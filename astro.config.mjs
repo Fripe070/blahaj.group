@@ -1,6 +1,6 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, envField, fontProviders } from "astro/config";
 
 export default defineConfig({
     devToolbar: { enabled: false },
@@ -10,6 +10,15 @@ export default defineConfig({
     output: "static",
     build: {
         assets: "assets",
+    },
+    env: {
+        schema: {
+            REPO_URL: envField.string({
+                context: "server",
+                access: "public",
+                default: "https://github.com/Fripe070/blahaj.group",
+            }),
+        },
     },
     experimental: {
         fonts: [
