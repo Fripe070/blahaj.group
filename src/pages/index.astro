@@ -57,7 +57,12 @@ import { memberSites } from "@/scripts/sites";
         <div class="flex flex-row flex-wrap justify-center gap-5 p-5">
             {
                 memberSites.map((site) => (
-                    <div class="relative h-80 w-180 overflow-visible">
+                    <div
+                        class="relative h-80 w-180 overflow-visible"
+                        data-card-id={site.meta.id}
+                        data-card-url={site.meta.url}
+                        data-card-owner={site.meta.owner}
+                    >
                         <site.card meta={site.meta} />
                     </div>
                 ))

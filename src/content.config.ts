@@ -7,8 +7,8 @@ const members = defineCollection({
         id: z
             .string()
             .regex(/^[a-z0-9_]+$/, "Invalid ID format. Needs to be alphanumeric with underscores."),
-        owner: z.string().default("Anonymous"),
         url: z.string().url(),
+        owner: z.string().default("Anonymous"),
     }),
 });
 
