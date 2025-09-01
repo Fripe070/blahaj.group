@@ -1,13 +1,13 @@
-A small webring composed of a group of developer friends.
+A small webring for a tight community of developer friends.
 
-The site is built using [Astro](https://astro.build/) and aimed at providing customisability to its members.
+The site is built using [Astro](https://astro.build/) and is focused on giving members the ability to show off their sites and projects.
 
 ## Developing
 
 ### Getting Started
 
 Clone the repository and run the following commands.
-If you intend to contribute, you probably want to fork the repository and clone your fork instead.
+If you intend to contribute, you likely want to first fork the repository and then clone that instead.
 
 ```sh
 bun install
@@ -15,7 +15,7 @@ bun run dev
 ```
 
 <details>
-<summary>npm</summary>
+<summary><code>npm</code> version</summary>
 
 ```sh
 npm install
@@ -23,7 +23,8 @@ npm run dev
 ```
 
 </details>
-It is recommended that you use VS Code with the configured extensions for the best development experience.
+
+It is recommended to use VS Code with the configured extensions for the best development experience.
 
 ### Joining the ring
 
