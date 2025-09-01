@@ -6,10 +6,7 @@ const members = defineCollection({
     schema: z.object({
         id: z
             .string()
-            .regex(
-                /^[a-z0-9_]+$/,
-                "Invalid ID format. Needs to be alphanumeric with underscores.",
-            ),
+            .regex(/^[a-z0-9_]+$/, "Invalid ID format. Needs to be alphanumeric with underscores."),
         owner: z.string().default("Anonymous"),
         url: z.string().url(),
     }),

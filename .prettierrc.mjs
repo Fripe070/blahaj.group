@@ -20,5 +20,11 @@ export default {
                 tabWidth: 2,
             },
         },
+        {
+            files: "*.svg",
+            options: {
+                parser: "html",
+            },
+        },
     ],
 };

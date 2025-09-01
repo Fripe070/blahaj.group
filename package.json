@@ -6,7 +6,7 @@
         "dev": "astro dev",
         "build": "astro build",
         "test": "vitest run",
-        "fix": "eslint --fix . && prettier --write .",
+        "fix": "eslint --fix . || true && prettier --write .",
         "lint": "eslint .",
         "format": "prettier --write ."
     },
