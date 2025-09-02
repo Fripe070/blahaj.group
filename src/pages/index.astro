@@ -6,6 +6,7 @@ import { REPO_URL } from "astro:env/server";
 
 import BlahajImage from "@/assets/blahaj.webp";
 import GitHubIcon from "@/assets/github.svg";
+import RandomIcon from "@/assets/random.svg";
 import Fonts from "@/components/Fonts.astro";
 import MetaTags from "@/components/MetaTags.astro";
 import { memberSites } from "@/scripts/sites";
@@ -30,17 +31,20 @@ import { memberSites } from "@/scripts/sites";
                         <ul class="flex flex-row flex-wrap items-stretch justify-center gap-2">
                             <li>
                                 <a
-                                    class="flex h-10 items-center justify-center rounded bg-blue-400 px-4 text-black select-none hover:bg-blue-500"
+                                    class="flex h-10 items-center justify-center gap-2 rounded bg-blue-400 px-2.5 text-black select-none hover:bg-blue-500"
                                     href="/random"
+                                    target="_self"
+                                    rel="noopener noreferrer"
                                 >
-                                    Random Site
+                                    <RandomIcon class="h-6 w-6" />
+                                    Random site
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    class="text- flex h-10 items-center justify-center gap-2 rounded bg-white px-2.5 select-none hover:bg-gray-200 dark:bg-[#010409] dark:text-white dark:hover:bg-[#161B22]"
+                                    class="flex h-10 items-center justify-center gap-2 rounded bg-white px-2.5 select-none hover:bg-gray-200 dark:bg-[#010409] dark:text-white dark:hover:bg-[#161B22]"
                                     href={REPO_URL}
-                                    target="_blank"
+                                    target="_self"
                                     rel="noopener noreferrer"
                                 >
                                     <GitHubIcon class="h-6 w-6" />
