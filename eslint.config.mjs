@@ -1,21 +1,22 @@
 // @ts-check
 import js from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
-import eslintPluginAstro from "eslint-plugin-astro";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
+import { defineConfig } from "eslint/config";
+import prettier from "eslint-config-prettier/flat";
+import astro from "eslint-plugin-astro";
+import importSort from "eslint-plugin-simple-import-sort";
 import unusedImports from "eslint-plugin-unused-imports";
-import tseslint from "typescript-eslint";
+import ts from "typescript-eslint";
 
-export default tseslint.config(
+export default defineConfig(
     { ignores: ["dist/", ".astro/", "bun.lockb"] },
     js.configs.recommended,
-    tseslint.configs.recommended,
-    tseslint.configs.stylistic,
-    eslintConfigPrettier,
-    eslintPluginAstro.configs.recommended,
+    ts.configs.recommended,
+    ts.configs.stylistic,
+    prettier,
+    astro.configs.recommended,
     {
         plugins: {
-            "simple-import-sort": simpleImportSort,
+            "simple-import-sort": importSort,
             "unused-imports": unusedImports,
         },
         rules: {
