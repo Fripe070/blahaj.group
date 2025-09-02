@@ -6,8 +6,8 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Build static astro site
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
