@@ -1,40 +1,38 @@
-A small webring for a tight community of developer friends.
+A small showcase site for a close-knit community of developer friends.
 
-The site is built using [Astro](https://astro.build/) and is focused on giving members the ability to show off their sites and projects.
+The site is built using [Astro](https://astro.build/) and is meant to give members tools to show off their personal sites and projects.
 
 ## Developing
 
 ### Getting Started
 
-Clone the repository and run the following commands.
-If you intend to contribute, you likely want to first fork the repository and then clone that instead.
-
-```sh
-bun install
-bun run dev
-```
-
-<details>
-<summary><code>npm</code> version</summary>
+To get started, clone the repository and run the following commands. If you plan to contribute, consider forking the repository first and cloning your fork.
 
 ```sh
 npm install
 npm run dev
 ```
 
+<details>
+<summary><code>bun</code> version</summary>
+
+```sh
+bun install
+bun run dev
+```
+
 </details>
 
-It is recommended to use VS Code with the configured extensions for the best development experience.
+It is recommended to use [VS Code](https://code.visualstudio.com/) with the preconfigured extensions for the best development experience.
 
-### Joining the ring
+### Joining
 
 > [!WARNING]
-> The ring is currently under active development and the below information might not be up-to-date.
-> If trouble arises adding yourself to the ring, please open an issue.
+> The site is currently under active development and the below information might not be up-to-date.
+> If trouble arises adding yourself to the site, please open an issue.
 
 <!-- MAINTAINER TODO LIST:
-- Explain requirements for the site to be accepted into the ring.
-- Document new card naming rules (alphanumerical with underscores)
+- Explain requirements for the site to be accepted into the site.
  -->
 
 1. **Add yourself to [`members.json`](src/members.json)**
@@ -47,20 +45,21 @@ It is recommended to use VS Code with the configured extensions for the best dev
     }
     ```
 
-    IDs should be unique and can be any string, but it's recommended to use a lowercase version of your site's or your own name.
+    IDs must be unique and consist of lowercase alphanumeric characters (underscores are allowed).
+    We recommend using a lowercase version of your site's name or domain.
 
 2. **Create your card**
 
-    Create a file at `src/cards/site_id/card.astro`, replacing `site_id` with the previously specified site ID.
+    Create a file at `src/cards/<site_id>/card.astro`, replacing `<site_id>` with the ID specified in `members.json`.
 
-    The card file is an [astro component](https://docs.astro.build/en/basics/astro-components/), and can be customised however you want. In its most basic form, it can look like this:
+    The card file is an [Astro component](https://docs.astro.build/en/basics/astro-components/) that can be customized as desired. At its most basic, it looks like this:
 
     ```astro
     ---
-    import type { CardMeta } from "@/scripts/cards";
+    import type { SiteMeta } from "@/scripts/sites";
 
     interface Props {
-        meta: CardMeta;
+        meta: SiteMeta;
     }
     const { meta } = Astro.props;
     ---
@@ -72,27 +71,29 @@ It is recommended to use VS Code with the configured extensions for the best dev
     </div>
     ```
 
+    Site cards need to meet certain criteria to be accepted. See the [Guidelines and requirements](#guidelines-and-requirements) section for more information.
+
 ### Before committing:
 
-- Run `bun run fix` to apply automatic formatting and linting fixes, and report any linting errors.
-- Run `bun run test` to verify that all tests pass.
+- Run `npm run fix` to apply automatic formatting and linting fixes, and report any linting errors.
+- Run `npm run test` to verify that all tests pass.
 
 ## Guidelines and requirements
 
-- **Redirecting:**
-  Cards are _**required**_ to in some way allow the user to go to the site they represent.
+- **Navigation:**
+  Cards **must** include an accessible way to navigate to the site they represent.
   This can be through a link, button, or another interactive element.
-  For consistency, the URL should be obtained from the `meta` prop passed to the card component.
-
-- **Static Context:**
-  The website is rendered on the server once at build time, so any dynamic behavior must be implemented using client-side JavaScript, or entirely left out.
 
 - **File Structure:**
-  Keep any files related to your card within your own directory. Any changes outside of your own directory will be more rigorously reviewed before being merged.
+  Keep all files related to your card within your own directory. 
+  Changes outside your directory will undergo more rigorous review before merging.
 
 - **Libraries:**
-  External libraries may be added to the project if desired, but will require approval before being merged.
+  External libraries can be added if needed, but they will receive extra scrutiny during review.
 
-- **Card bounds:**
-  Cards are expected to stay roughly inside their container's bounds, but may leak outside a bit for stylistic purposes.
-  If card content leaks too far outside of its container and disrupts other members, a decision may be made to revert the changes.
+- **Card Bounds:**
+  Cards should generally stay within their container's bounds, though minor overflow can be acceptable.
+  If content overflows excessively and disrupts other cards, the changes may be reverted.
+
+- **Static Rendering:**
+  The website is statically rendered at build time, so dynamic behavior must be handled with client-side JavaScript or omitted entirely.
