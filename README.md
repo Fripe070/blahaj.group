@@ -81,6 +81,7 @@ It is recommended to use [VS Code](https://code.visualstudio.com/) with the prec
     - Be publicly accessible and (at least largely) functional.
     - Be your own creation or a project you significantly contribute to.
     - Pass the vibe check (i.e., be appropriate, relevant and respectful).
+    - If you have multiple sites, each should be distinct. You can for instance not have cards for multiple of your personal portfolios or blogs.
 
 - **Navigation:**
   Cards **must** include an accessible way to navigate to the website they represent.
