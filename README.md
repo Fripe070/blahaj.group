@@ -1,6 +1,6 @@
 A small showcase site for a close-knit community of developer friends.
 
-The site is built using [Astro](https://astro.build/) and is meant to give members tools to show off their personal sites and projects.
+The group site is built using [Astro](https://astro.build/) and is meant to give members tools to show off their websites and projects.
 
 ## Developing
 
@@ -28,12 +28,8 @@ It is recommended to use [VS Code](https://code.visualstudio.com/) with the prec
 ### Joining
 
 > [!WARNING]
-> The site is currently under active development and the below information might not be up-to-date.
+> The group site is currently under active development and the below information might not be up-to-date.
 > If trouble arises adding yourself to the site, please open an issue.
-
-<!-- MAINTAINER TODO LIST:
-- Explain requirements for the site to be accepted into the site.
- -->
 
 1. **Add yourself to [`members.json`](src/members.json)**
 
@@ -71,7 +67,7 @@ It is recommended to use [VS Code](https://code.visualstudio.com/) with the prec
     </div>
     ```
 
-    Site cards need to meet certain criteria to be accepted. See the [Guidelines and requirements](#guidelines-and-requirements) section for more information.
+    Website cards need to meet certain criteria to be accepted. See the [Guidelines and requirements](#guidelines-and-requirements) section for more information.
 
 ### Before committing:
 
@@ -80,12 +76,18 @@ It is recommended to use [VS Code](https://code.visualstudio.com/) with the prec
 
 ## Guidelines and requirements
 
+- **Acceptance Criteria:**
+  To be accepted into the group site, your website should:
+    - Be publicly accessible and (at least largely) functional.
+    - Be your own creation or a project you significantly contribute to.
+    - Pass the vibe check (i.e., be appropriate, relevant and respectful).
+
 - **Navigation:**
-  Cards **must** include an accessible way to navigate to the site they represent.
+  Cards **must** include an accessible way to navigate to the website they represent.
   This can be through a link, button, or another interactive element.
 
 - **File Structure:**
-  Keep all files related to your card within your own directory. 
+  Keep all files related to your card within your own directory.
   Changes outside your directory will undergo more rigorous review before merging.
 
 - **Libraries:**
