@@ -1,0 +1,25 @@
+---
+import type { SiteMeta } from "@/scripts/sites";
+
+interface Props {
+    meta: SiteMeta;
+}
+const { meta } = Astro.props;
+
+const previewUrl = new URL(meta.url);
+previewUrl.pathname += "preview/";
+---
+
+<div class="flex flex-row bg-[#1d1f25]">
+    <div class="flex grow flex-col items-center justify-center gap-1 p-4 py-8">
+        <a href={meta.url} class="underline">
+            <h1>ShaderCoy</h1>
+        </a>
+        <p>A feature-rich WebGL-based shader editor.</p>
+        <p>
+            It allows for live coding of GLSL shaders with support for realtime preview with custom
+            models and textures.
+        </p>
+    </div>
+    <iframe class="h-full w-3/5 shrink-0 border-0" src={previewUrl.toString()}></iframe>
+</div>
