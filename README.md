@@ -60,7 +60,7 @@ It is recommended to use [VS Code](https://code.visualstudio.com/) with the prec
     const { meta } = Astro.props;
     ---
 
-    <div class="bg-background-alt flex h-full w-full items-center justify-center">
+    <div class="bg-background-alt flex items-center justify-center">
         <a href={meta.url} class="text-blue-500 hover:underline">
             {meta.url}
         </a>

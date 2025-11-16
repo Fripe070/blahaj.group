@@ -62,7 +62,7 @@ import { memberSites } from "@/scripts/sites";
             {
                 memberSites.map((site) => (
                     <div
-                        class="relative h-80 w-150 overflow-visible"
+                        class="relative h-80 w-150 overflow-visible *:only:h-full"
                         data-card-id={site.meta.id}
                         data-card-url={site.meta.url}
                         data-card-owner={site.meta.owner}
