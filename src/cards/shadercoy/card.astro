@@ -10,7 +10,7 @@ const previewUrl = new URL(meta.url);
 previewUrl.pathname += "preview/";
 ---
 
-<div class="flex flex-row bg-[#d8dee9] dark:bg-[#1d1f25]">
+<div class="flex flex-row bg-[#e5e9f0] dark:bg-[#21252b]">
     <div class="flex grow flex-col items-center justify-center gap-1 p-4 py-8">
         <a href={meta.url} class="underline">
             <h1>ShaderCoy</h1>
@@ -21,5 +21,28 @@ previewUrl.pathname += "preview/";
             models and textures.
         </p>
     </div>
-    <iframe class="h-full w-3/5 shrink-0 border-0" src={previewUrl.toString()}></iframe>
+    <iframe
+        class="h-full w-3/5 shrink-0 border-0"
+        src={previewUrl.toString()}
+        title="ShaderCoy preview"
+        loading="lazy"
+        allow="fullscreen 'none'"
+        sandbox="allow-scripts"></iframe>
 </div>
+
+<script is:inline>
+    const cardElement = document.currentScript?.parentElement;
+    const iframe = cardElement?.querySelector("iframe");
+    function setTheme(dark) {
+        const theme = dark ? "one-dark" : "nord-snow";
+        iframe?.contentWindow?.postMessage({ type: "setTheme", theme: theme }, "*");
+    }
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+        setTheme(event.matches);
+    });
+    iframe?.addEventListener("load", () => {
+        const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setTheme(isDarkMode);
+    });
+</script>
