@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+import type { SiteMeta } from "@/scripts/sites";
+
+import myLogo from "./logo.svg";
+
+interface Props {
+    meta: SiteMeta;
+}
+const { meta } = Astro.props;
+---
+
+<div class="flex flex-row bg-[#e5e9f0] dark:bg-[#21252b]">
+    <div class="flex grow flex-col items-center justify-center gap-1 p-4 py-8">
+        <a href={meta.url} class="underline">
+            <h1>valkyrie_pilot</h1>
+        </a>
+        <h2>I have a website!</h2>
+        <p>I'm a little silly on it, but mostly it just talks about who I am.</p>
+    </div>
+    <Image
+        src={myLogo}
+        alt="An airplane taking off"
+        class="h-full w-3/5 shrink-0 border-0"
+        title="ShaderCoy preview"
+        loading="lazy"
+    />
+</div>
