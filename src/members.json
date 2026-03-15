@@ -8,5 +8,20 @@
         "id": "shadercoy",
         "owner": "Fripe",
         "url": "https://shaders.fripe.dev"
+    },
+    {
+        "id": "valk",
+        "owner": "valkyrie_pilot",
+        "url": "https://randomairborne.dev"
+    },
+    {
+        "id": "mcping",
+        "owner": "valkyrie_pilot",
+        "url": "https://mcping.me"
+    },
+    {
+        "id": "giveip",
+        "owner": "valkyrie_pilot",
+        "url": "https://giveip.io"
     }
 ]

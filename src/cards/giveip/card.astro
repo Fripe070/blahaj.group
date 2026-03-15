@@ -1,0 +1,24 @@
+---
+import type { SiteMeta } from "@/scripts/sites";
+
+interface Props {
+    meta: SiteMeta;
+}
+const { meta } = Astro.props;
+---
+
+<div class="flex flex-row bg-[#e5e9f0] dark:bg-[#21252b]">
+    <div class="flex grow flex-col items-center justify-center gap-1 p-4 py-8">
+        <a href={meta.url} class="underline">
+            <h1>GiveIP</h1>
+        </a>
+        <p>Get your IP address easily. Force it to v4 or v6.</p>
+    </div>
+    <iframe
+        class="h-full w-3/5 shrink-0 border-0"
+        src={meta.url}
+        title="Your IP"
+        loading="lazy"
+        allow="fullscreen 'none'"
+        sandbox="allow-scripts"></iframe>
+</div>
