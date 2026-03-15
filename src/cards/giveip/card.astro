@@ -17,25 +17,8 @@ const { meta } = Astro.props;
     <iframe
         class="h-full w-3/5 shrink-0 border-0"
         src={meta.url}
-        title="ShaderCoy preview"
+        title="Your IP"
         loading="lazy"
         allow="fullscreen 'none'"
         sandbox="allow-scripts"></iframe>
 </div>
-
-<script is:inline>
-    const cardElement = document.currentScript?.parentElement;
-    const iframe = cardElement?.querySelector("iframe");
-    function setTheme(dark) {
-        const theme = dark ? "one-dark" : "nord-snow";
-        iframe?.contentWindow?.postMessage({ type: "setTheme", theme: theme }, "*");
-    }
-
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-        setTheme(event.matches);
-    });
-    iframe?.addEventListener("load", () => {
-        const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        setTheme(isDarkMode);
-    });
-</script>
